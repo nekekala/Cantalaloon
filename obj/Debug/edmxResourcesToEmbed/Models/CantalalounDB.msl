@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Members)">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="ektasi" ColumnName="ektasi" />
+          <ScalarProperty Name="songID" ColumnName="songID" />
+          <ScalarProperty Name="groupID" ColumnName="groupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Songs">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Songs)">
+        <MappingFragment StoreEntitySet="Songs">
+          <ScalarProperty Name="songID" ColumnName="songID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="composer" ColumnName="composer" />
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Groups)">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="groupID" ColumnName="groupID" />
+          <ScalarProperty Name="groupName" ColumnName="groupName" />
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+          <ScalarProperty Name="songID" ColumnName="songID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

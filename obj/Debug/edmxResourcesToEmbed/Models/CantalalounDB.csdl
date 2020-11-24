@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="lastname" Type="String" Nullable="false" />
+    <Property Name="telephone" Type="Int32" Nullable="true" />
+    <Property Name="mail" Type="String" Nullable="false" />
+    <Property Name="ektasi" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="songID" Type="Int32" Nullable="true" />
+    <Property Name="groupID" Type="Int32" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="songID" />
+    </Key>
+    <Property Name="songID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" />
+    <Property Name="composer" Type="String" Nullable="true" />
+    <Property Name="memberID" Type="Int32" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="groupID" />
+    </Key>
+    <Property Name="groupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="memberID" Type="Int32" Nullable="true" />
+    <Property Name="songID" Type="Int32" Nullable="true" />
+  </EntityType>
+  <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="masterModel.Members" />
+    <EntitySet Name="Songs" EntityType="masterModel.Songs" />
+    <EntitySet Name="Groups" EntityType="masterModel.Groups" />
+  </EntityContainer>
+</Schema>

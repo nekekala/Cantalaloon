@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="masterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="masterModelStoreContainer">
+    <EntitySet Name="Members" EntityType="masterModel.Store.Members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Songs" EntityType="masterModel.Store.Songs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Groups" EntityType="masterModel.Store.Groups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rehearsals" EntityType="masterModel.Store.Rehearsals" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lastname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="telephone" Type="int" Nullable="true" />
+    <Property Name="mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ektasi" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="songID" Type="int" Nullable="true" />
+    <Property Name="groupID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="songID" />
+    </Key>
+    <Property Name="songID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="composer" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="memberID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="groupID" />
+    </Key>
+    <Property Name="groupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="groupName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="memberID" Type="int" Nullable="true" />
+    <Property Name="songID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Rehearsals">
+    <Key>
+      <PropertyRef Name="rehearsalId" />
+    </Key>
+    <Property Name="rehearsalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="songID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="memberID" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="memberID" />
+          </Key>
+          <Property Name="memberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="lastname" Type="String" Nullable="false" />
+          <Property Name="telephone" Type="Int32" Nullable="true" />
+          <Property Name="mail" Type="String" Nullable="false" />
+          <Property Name="ektasi" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="songID" Type="Int32" Nullable="true" />
+          <Property Name="groupID" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="songID" />
+          </Key>
+          <Property Name="songID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" />
+          <Property Name="composer" Type="String" Nullable="true" />
+          <Property Name="memberID" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="groupID" />
+          </Key>
+          <Property Name="groupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="memberID" Type="Int32" Nullable="true" />
+          <Property Name="songID" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Members" EntityType="masterModel.Members" />
+          <EntitySet Name="Songs" EntityType="masterModel.Songs" />
+          <EntitySet Name="Groups" EntityType="masterModel.Groups" />
+          <EntitySet Name="Rehearsals" EntityType="masterModel.Rehearsal" />
+        </EntityContainer>
+        <EntityType Name="Rehearsal">
+          <Key>
+            <PropertyRef Name="rehearsalId" />
+          </Key>
+          <Property Name="rehearsalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="String" Nullable="false" />
+          <Property Name="songID" Type="String" Nullable="false" />
+          <Property Name="memberID" Type="String" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Members)">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="ektasi" ColumnName="ektasi" />
+          <ScalarProperty Name="songID" ColumnName="songID" />
+          <ScalarProperty Name="groupID" ColumnName="groupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Songs">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Songs)">
+        <MappingFragment StoreEntitySet="Songs">
+          <ScalarProperty Name="songID" ColumnName="songID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="composer" ColumnName="composer" />
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Groups)">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="groupID" ColumnName="groupID" />
+          <ScalarProperty Name="groupName" ColumnName="groupName" />
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+          <ScalarProperty Name="songID" ColumnName="songID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rehearsals">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Rehearsal)">
+        <MappingFragment StoreEntitySet="Rehearsals">
+          <ScalarProperty Name="rehearsalId" ColumnName="rehearsalId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="songID" ColumnName="songID" />
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

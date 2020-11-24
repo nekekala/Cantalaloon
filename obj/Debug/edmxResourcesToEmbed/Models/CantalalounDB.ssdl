@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="masterModelStoreContainer">
+    <EntitySet Name="Members" EntityType="masterModel.Store.Members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Songs" EntityType="masterModel.Store.Songs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Groups" EntityType="masterModel.Store.Groups" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lastname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="telephone" Type="int" Nullable="true" />
+    <Property Name="mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ektasi" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="songID" Type="int" Nullable="true" />
+    <Property Name="groupID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="songID" />
+    </Key>
+    <Property Name="songID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="composer" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="memberID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="groupID" />
+    </Key>
+    <Property Name="groupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="groupName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="memberID" Type="int" Nullable="true" />
+    <Property Name="songID" Type="int" Nullable="true" />
+  </EntityType>
+</Schema>

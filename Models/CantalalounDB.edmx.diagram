@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d3e4035d754f4190a133c2370fd23d28" Name="Diagram1">
+        <EntityTypeShape EntityType="masterModel.Members" Width="1.5" PointX="0.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Songs" Width="1.5" PointX="2.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Groups" Width="1.5" PointX="4.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Rehearsal" Width="1.5" PointX="6.75" PointY="0.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
