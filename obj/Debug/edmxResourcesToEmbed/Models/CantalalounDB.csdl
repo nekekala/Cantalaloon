@@ -35,5 +35,15 @@
     <EntitySet Name="Members" EntityType="masterModel.Members" />
     <EntitySet Name="Songs" EntityType="masterModel.Songs" />
     <EntitySet Name="Groups" EntityType="masterModel.Groups" />
+    <EntitySet Name="Rehearsals" EntityType="masterModel.Rehearsal" />
   </EntityContainer>
+  <EntityType Name="Rehearsal">
+    <Key>
+      <PropertyRef Name="rehearsalId" />
+    </Key>
+    <Property Name="rehearsalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="String" Nullable="false" />
+    <Property Name="songID" Type="String" Nullable="false" />
+    <Property Name="memberID" Type="String" Nullable="false" />
+  </EntityType>
 </Schema>

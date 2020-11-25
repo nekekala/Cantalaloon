@@ -35,5 +35,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Rehearsals">
+      <EntityTypeMapping TypeName="IsTypeOf(masterModel.Rehearsal)">
+        <MappingFragment StoreEntitySet="Rehearsals">
+          <ScalarProperty Name="rehearsalId" ColumnName="rehearsalId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="songID" ColumnName="songID" />
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

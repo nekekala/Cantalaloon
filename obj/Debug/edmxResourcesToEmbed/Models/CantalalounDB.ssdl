@@ -4,6 +4,7 @@
     <EntitySet Name="Members" EntityType="masterModel.Store.Members" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Songs" EntityType="masterModel.Store.Songs" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Groups" EntityType="masterModel.Store.Groups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rehearsals" EntityType="masterModel.Store.Rehearsals" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="Members">
     <Key>
@@ -35,5 +36,14 @@
     <Property Name="groupName" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="memberID" Type="int" Nullable="true" />
     <Property Name="songID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Rehearsals">
+    <Key>
+      <PropertyRef Name="rehearsalId" />
+    </Key>
+    <Property Name="rehearsalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="songID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="memberID" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
 </Schema>

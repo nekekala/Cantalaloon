@@ -105,6 +105,23 @@ GO
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
+ALTER TABLE [dbo].[Members]
+ADD FOREIGN KEY (groupID) REFERENCES Groups(groupID),
+    FOREIGN KEY (songID) REFERENCES Songs(songID)
+GO
+
+ALTER TABLE [dbo].[Rehearsals]
+ADD FOREIGN KEY (memberID) REFERENCES Members(memberID),
+    FOREIGN KEY (songID) REFERENCES Songs(songID)
+GO
+
+ALTER TABLE [dbo].[Songs]
+ADD FOREIGN KEY (memberID) REFERENCES Members(memberID)
+GO
+ALTER TABLE [dbo].[Groups]
+ADD FOREIGN KEY (memberID) REFERENCES Members(memberID),
+    FOREIGN KEY (songID) REFERENCES Songs(songID)
+GO
 
 -- --------------------------------------------------
 -- Script has ended
